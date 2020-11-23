@@ -9,8 +9,3 @@ http:
     BasicAuth:
       basicAuth:
         usersFile: "etc/traefik/.htpasswd"
-    
-    RedirectToHttps:
-      redirectscheme:
-        scheme: "https"
-        permanent: true

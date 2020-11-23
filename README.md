@@ -2,18 +2,11 @@
 
 Репозиторий содержит два конфига: для `prod` среды и `dev` среды (без https, Lets Encrypt, с debug логированием и открытым дашбордом). Оформлены они в виде отдельных веток репозитория по названию среды.
 
-Клонирование конфига для `prod` среды:
+Клонирование конфига для `dev` среды:
 
 ```bash
-git clone --single-branch --branch prod https://github.com/qulaz/traefik_template.git
+git clone --single-branch --branch dev https://github.com/qulaz/traefik_template.git
 ```
-
-# Что есть
-
-- https с Lets Encrypt + автопродление сертификатов
-- Редирект с http на https
-- Middleware для Basic Auth
-- Docker и File providers
 
 # Настройка
 
@@ -35,13 +28,6 @@ htpasswd -nb user password >> .htpasswd
 
 ```bash
 openssl passwd -apr1
-```
-
-- Переименовать `acme.json.dict` в `acme.json` и выставить ему разрешения 600
-
-```bash
-mv acme.json.dict acme.json
-chmod 600 acme.json
 ```
 
 - Переименовать `configs/middlewares.yaml.dist` в `configs/middlewares.yaml`

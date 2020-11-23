@@ -1,22 +1,15 @@
+defaultEntryPoints:
+  - http
+
 entryPoints:
   web:
     address: ":80"
-    http:
-      middlewares:
-        - RedirectToHttps@file
-  websecure:
-    address: ":443"
-    http:
-      tls:
-        certResolver: letsEncrypt
 
-certificatesResolvers:
-  letsEncrypt:
-    acme:
-      storage: acme.json
-      tlsChallenge: {}
-      httpChallenge:
-        entryPoint: web
+log:
+  level: DEBUG
+
+api:
+  insecure: true
 
 providers:
   docker:
