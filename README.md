@@ -40,7 +40,7 @@ openssl passwd -apr1
 - Переименовать `acme.json.dict` в `acme.json` и выставить ему разрешения 600
 
 ```bash
-mv acme.json.dict acme.json
+mv acme.json.dist acme.json
 chmod 600 acme.json
 ```
 
