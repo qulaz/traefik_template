@@ -1,0 +1,10 @@
+.DS_Store
+.idea
+
+.htpasswd
+acme.json
+.env
+
+configs/*.yaml
+configs/*.yml
+configs/*.toml

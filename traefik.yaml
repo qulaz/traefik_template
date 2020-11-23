@@ -1,0 +1,28 @@
+entryPoints:
+  web:
+    address: ":80"
+    http:
+      middlewares:
+        - RedirectToHttps@file
+  websecure:
+    address: ":443"
+    http:
+      tls:
+        certResolver: letsEncrypt
+
+certificatesResolvers:
+  letsEncrypt:
+    acme:
+      storage: acme.json
+      tlsChallenge: {}
+      httpChallenge:
+        entryPoint: web
+
+providers:
+  docker:
+    exposedByDefault: false
+    network: traefik
+    defaultRule: 'Host(`{{ env "HOST_DOMAIN_NAME" }}`)'
+  file:
+    directory: /etc/traefik/configs
+    watch: true

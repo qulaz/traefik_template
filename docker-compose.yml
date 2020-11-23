@@ -1,0 +1,24 @@
+version: "3.7"
+
+networks:
+  traefik:
+    name: traefik
+
+services:
+  traefik:
+    image: "traefik:latest"
+    container_name: "traefik"
+    restart: always
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./traefik.yaml:/etc/traefik/traefik.yaml"
+      - "./configs:/etc/traefik/configs"
+      - "./.htpasswd:/etc/traefik/.htpasswd"
+      - "./acme.json:/acme.json"
+    env_file:
+      - .env
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - traefik
