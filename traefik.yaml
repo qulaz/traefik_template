@@ -15,7 +15,6 @@ providers:
   docker:
     exposedByDefault: false
     network: traefik
-    defaultRule: 'Host(`{{ env "HOST_DOMAIN_NAME" }}`)'
   file:
     directory: /etc/traefik/configs
     watch: true
