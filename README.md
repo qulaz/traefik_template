@@ -119,8 +119,8 @@ services:
     labels:
       traefik.enable: true
       # Подставляем хост из созданного `.env` файла
-      traefik.http.routers.grafana.rule: Host(`${API_HOST}`)
-      traefik.http.services.grafana.loadbalancer.server.port: 8000
+      traefik.http.routers.backend.rule: Host(`${API_HOST}`)
+      traefik.http.services.backend.loadbalancer.server.port: 8000
 
   frontend:
     build: .
@@ -129,8 +129,8 @@ services:
     labels:
       traefik.enable: true
       # Подставляем хост из созданного `.env` файла
-      traefik.http.routers.grafana.rule: Host(`${HOST}`)
-      traefik.http.services.grafana.loadbalancer.server.port: 3000
+      traefik.http.routers.frontend.rule: Host(`${HOST}`)
+      traefik.http.services.frontend.loadbalancer.server.port: 3000
 ```
 
 ## Файловые конфиги
