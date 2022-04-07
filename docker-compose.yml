@@ -7,13 +7,12 @@ networks:
 services:
   traefik:
     container_name: "traefik"
-    image: "traefik:latest"
+    image: "traefik:v2.6.3"
     volumes:
       - "./traefik.yaml:/etc/traefik/traefik.yaml"
       - "./configs:/etc/traefik/configs"
       - "./.htpasswd:/etc/traefik/.htpasswd"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
-    env_file: .env
     ports:
       - "80:80"
       - "8080:8080"
