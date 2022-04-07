@@ -24,12 +24,6 @@ git clone --single-branch --branch dev https://github.com/qulaz/traefik_template
   openssl passwd -apr1
   ```
 
-- Переименовать `configs/middlewares.yaml.dist` в `configs/middlewares.yaml`
-
-  ```bash
-  mv configs/middlewares.yaml.dist configs/middlewares.yaml
-  ```
-
 - Запустить `traefik`:
 
   ```bash
