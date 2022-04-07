@@ -41,6 +41,7 @@ git clone --single-branch --branch dev https://github.com/qulaz/traefik_template
 ## В Docker Compose
 
 ### Один сервис - один роут
+
 ```yaml
 version: "3"
 
@@ -66,6 +67,7 @@ services:
 ```
 
 ### Один сервис - несколько роутов с разными правилами
+
 ```yaml
 version: "3.7"
 
@@ -97,12 +99,16 @@ services:
 ```
 
 ### Динамическое имя хоста
+
 Для динамического задания имени хоста/домена необходимо создать переменную среды с произвольным именем. Лучший для этого способ - создать рядом с `docker-compose.yml` запускаемого сервиса файл `.env` со следующим содержимым:
+
 ```
 HOST=example.com
 API_HOST=api.example.com
 ```
+
 Затем в `docker-compose.yml` запускаемого сервиса
+
 ```yaml
 version: "3"
 
@@ -132,7 +138,3 @@ services:
       traefik.http.routers.frontend.rule: Host(`${HOST}`)
       traefik.http.services.frontend.loadbalancer.server.port: 3000
 ```
-
-## Файловые конфиги
-
-Добавить `yaml` файл в директорию [`configs`](./configs) по аналогии с файлом примера [`configs/NodeExporter.yaml.dist`](./configs/NodeExporter.yaml.dist)
